@@ -1,53 +1,51 @@
-# Angular Dynamic Form Builder
+# Angular Dynamic Form Builder Component
 
-## Project Overview
+## Deliverables
 
-The Angular Dynamic Form Builder Component is a powerful tool for creating dynamic forms based on a JSON configuration. It allows users to define multi-section forms with various field types, such as text inputs, email inputs, date pickers, dropdown lists, checkboxes, textarea inputs, and dynamic fields.
+This project includes a fully functional Angular application with a dynamic form builder component. Below are the deliverables for this project:
 
-## Features
+1. **Angular Application:** The project consists of a fully functional Angular application that incorporates the dynamic form builder component. The component allows users to create dynamic forms based on a JSON configuration.
 
-- Multi-section forms with different field types
-- Dynamic fields enabling addition, removal, and reordering based on selected options
-- Validation and required rules applied to form fields
-- Easy customization using a JSON configuration
+2. **Code Repository Link:** The source code for the project is available on GitHub. You can access it through the following link: [GitHub Repository](https://github.com/muhammadshiraz/angular-dynamic-form-builder-component)
 
-## Prerequisites
+3. **README File:**
 
-Before you begin, ensure you have met the following requirements:
+### Project Setup
 
-- Angular installed globally
-- Bootstrap 5 CSS library
+To set up the project, follow these steps:
 
-```bash
-npm install -g @angular/cli
-```
+1. Ensure you have Angular and Bootstrap 5 CSS installed in your project.
+2. Use the provided JSON configuration as the data source for the form builder component.
 
-Installation
+### Key Functionalities
 
-1. Clone the repository:
+- **Dynamic Form Builder Component:** The core functionality of the project is the dynamic form builder component. This component allows users to define multi-section forms with various field types, including text inputs, email inputs, date pickers, dropdown lists, checkboxes, textarea inputs, and dynamic fields.
 
-```bash
-git clone https://github.com/your-username/angular-dynamic-form-builder.git
-cd angular-dynamic-form-builder
-```
+- **Validation and Required Rules:** The dynamic form builder enforces validation and required rules on the form elements, ensuring data integrity.
 
-2. Dependencies:
+### Implemented Coding Standards
 
-```bash
-npm install
-```
+The project adheres to the following coding standards:
 
-3. Usage
-   In your Angular component:
+- **ESLint:** A pre-configured ESLint rule set for Angular is enforced using tools like Husky or lint-staged.
 
-```bash
+- **EditorConfig:** Common editor settings like indentation, spacing, and line endings are defined for consistent code formatting across the team.
+
+- **Prettier:** Code is automatically formatted on save with Prettier to ensure consistent code style and avoid manual formatting conflicts.
+
+- **IgnoreFile:** A well-defined .gitignore file is utilized to exclude unnecessary files and directories from version control.
+
+- **Additional Standards:** Other standards relevant to coding practices, such as naming conventions, file organization, and commit messages, are considered.
+
+### Sample Usage
+
+```html
 <app-dynamic-form [source]="formContent" (submit)="onSubmit()"></app-dynamic-form>
 ```
 
-4. JSON Configuration
-   Example JSON configuration:
+## JSON Configuration Example
 
-```bash
+```base
 [
   {
     "type": "section",
@@ -59,23 +57,93 @@ npm install
         "name": "firstName",
         "required": true
       },
-      // ... other fields
+      {
+        "type": "text",
+        "label": "Last Name",
+        "name": "lastName",
+        "required": true
+      },
+      {
+        "type": "email",
+        "label": "Email",
+        "name": "email",
+        "required": true,
+        "validation": {
+          "pattern": "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$"
+        }
+      },
+      {
+        "type": "date",
+        "label": "Date of Birth",
+        "name": "dateOfBirth"
+      }
     ]
   },
-  // ... other sections
+  {
+    "type": "section",
+    "label": "Contact Information",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Phone Number",
+        "name": "phoneNumber",
+        "mask": "(###) ###-####"
+      },
+      {
+        "type": "select",
+        "label": "Country",
+        "name": "country",
+        "options": [
+          {
+            "value": "US",
+            "label": "United States"
+          },
+          {
+            "value": "UK",
+            "label": "United Kingdom"
+          },
+          {
+            "value": "CA",
+            "label": "Canada"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "Subscribe to newsletter",
+        "name": "subscribe"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "label": "Additional Information",
+    "fields": [
+      {
+        "type": "textarea",
+        "label": "Bio",
+        "name": "bio"
+      },
+      {
+        "type": "dynamic",
+        "label": "Skills",
+        "name": "skills",
+        "options": [
+          {
+            "value": "programming",
+            "label": "Programming"
+          },
+          {
+            "value": "design",
+            "label": "Design"
+          },
+          {
+            "value": "writing",
+            "label": "Writing"
+          }
+        ]
+      }
+    ]
+  }
 ]
-```
-
-## Coding Standards (Continued)
-
-- **ESLint:** Use a pre-configured ESLint rule set for Angular and enforce it using tools like Husky or lint-staged.
-- **EditorConfig:** Define common editor settings like indentation, spacing, and line endings for consistent code formatting across the team.
-- **Prettier:** Format all code automatically on save with Prettier to ensure consistent code style and avoid manual formatting conflicts.
-
-### Setup ESLint with Husky and lint-staged
-
-Install required packages:
-
-```bash
-npm install --save-dev eslint husky lint-staged
 ```
