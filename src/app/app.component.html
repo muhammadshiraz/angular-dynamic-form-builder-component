@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Angular Dynamic Form Builder</h1>
+  <app-dynamic-form [source]="formContent" (submit)="onSubmit($event)"></app-dynamic-form>
+  <div *ngIf="formSubmissionData">
+    <h2>Form Submission Data</h2>
+    <pre>{{ formSubmissionData | json }}</pre>
+  </div>
+</div>

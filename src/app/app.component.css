@@ -1,0 +1,52 @@
+/* Add these styles to your component's CSS file (e.g., app.component.css) */
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+h1 {
+  color: #4285f4;
+  font-family: 'Arial', sans-serif;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 50px; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background-color: #4285f4;
+  margin: 10px auto; /* Adjust the margin as needed */
+}
+
+app-dynamic-form {
+  margin-top: 20px;
+}
+
+button[type="submit"],
+button[type="reset"] {
+  background-color: #4285f4;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="reset"] {
+  background-color: #dc3545;
+}
+
+/* Optional: Add some hover effects */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Optional: Add animations or transitions for a creative touch */

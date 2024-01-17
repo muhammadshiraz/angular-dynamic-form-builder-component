@@ -1,0 +1,68 @@
+/* Add these styles to your component's CSS file (e.g., dynamic-form.component.css) */
+
+:host {
+  display: block;
+  max-width: 600px;
+  margin: auto;
+}
+
+h2 {
+  color: #4285f4;
+  text-align: left; /* Align heading to the left */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  text-align: left; /* Align labels to the left */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.checkbox input {
+  margin-right: 8px; /* Adjust margin-left to create space between label and checkbox */
+}
+
+/* Updated styling for dynamic checkboxes */
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Allow wrapping of checkboxes to the next line */
+  align-items: center; /* Align checkboxes vertically in the center */
+  justify-content: flex-start; /* Align checkboxes to the right */
+  margin-bottom: 8px;
+}
+
+.checkbox label {
+  margin: 0; /* Adjust margin-left to create space between label and checkbox */
+}
+
+button {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  text-align: left; /* Align button to the left */
+}
+
+button[type="reset"] {
+  background-color: #dc3545;
+}
+
+/* Optional: Add some hover effects */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Optional: Add some animations or transitions for a creative touch */

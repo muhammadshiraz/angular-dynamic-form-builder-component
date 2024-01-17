@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div *ngFor="let section of source">
+    <div *ngIf="section.type === 'section'">
+      <h2>{{ section.label }}</h2>
+      <div *ngFor="let field of section.fields">
+        <div *ngIf="field.type === 'text'">
+          <label>{{ field.label }}</label>
+          <input type="text" [formControlName]="field.name" />
+        </div>
+        <div *ngIf="field.type === 'email'">
+          <label>{{ field.label }}</label>
+          <input type="email" [formControlName]="field.name" />
+        </div>
+        <div *ngIf="field.type === 'date'">
+          <label>{{ field.label }}</label>
+          <input type="date" [formControlName]="field.name" />
+        </div>
+        <div *ngIf="field.type === 'select'">
+          <label>{{ field.label }}</label>
+          <select [formControlName]="field.name">
+            <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+          </select>
+        </div>
+        <div class="checkbox" *ngIf="field.type === 'checkbox'">
+          <input type="checkbox" [formControlName]="field.name" />
+          <label>{{ field.label }}</label>          
+        </div>
+        <div *ngIf="field.type === 'textarea'">
+          <label>{{ field.label }}</label>
+          <textarea [formControlName]="field.name"></textarea>
+        </div>
+        <div *ngIf="field.type === 'dynamic'">
+          <label>{{ field.label }}</label>
+          <div class="checkbox" *ngFor="let option of field.options">
+            <input type="checkbox" [formControlName]="option.value" />
+            <label>{{ option.label }}</label>
+          </div>
+        </div>
+        <!-- Add other field types -->
+      </div>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+  <button type="button" (click)="onReset()">Reset</button>
+</form>
