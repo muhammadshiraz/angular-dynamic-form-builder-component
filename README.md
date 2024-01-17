@@ -1,27 +1,81 @@
-# AngularDynamicFormBuilder
+# Angular Dynamic Form Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.7.
+## Project Overview
 
-## Development server
+The Angular Dynamic Form Builder Component is a powerful tool for creating dynamic forms based on a JSON configuration. It allows users to define multi-section forms with various field types, such as text inputs, email inputs, date pickers, dropdown lists, checkboxes, textarea inputs, and dynamic fields.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Multi-section forms with different field types
+- Dynamic fields enabling addition, removal, and reordering based on selected options
+- Validation and required rules applied to form fields
+- Easy customization using a JSON configuration
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
 
-## Build
+Before you begin, ensure you have met the following requirements:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular installed globally
+- Bootstrap 5 CSS library
 
-## Running unit tests
+```bash
+npm install -g @angular/cli
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Installation
 
-## Running end-to-end tests
+1. Clone the repository:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+git clone https://github.com/your-username/angular-dynamic-form-builder.git
+cd angular-dynamic-form-builder
+```
 
-## Further help
+2. Dependencies:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm install
+```
+
+3. Usage
+   In your Angular component:
+
+```bash
+<app-dynamic-form [source]="formContent" (submit)="onSubmit()"></app-dynamic-form>
+```
+
+4. JSON Configuration
+   Example JSON configuration:
+
+```bash
+[
+  {
+    "type": "section",
+    "label": "Personal Information",
+    "fields": [
+      {
+        "type": "text",
+        "label": "First Name",
+        "name": "firstName",
+        "required": true
+      },
+      // ... other fields
+    ]
+  },
+  // ... other sections
+]
+```
+
+## Coding Standards (Continued)
+
+- **ESLint:** Use a pre-configured ESLint rule set for Angular and enforce it using tools like Husky or lint-staged.
+- **EditorConfig:** Define common editor settings like indentation, spacing, and line endings for consistent code formatting across the team.
+- **Prettier:** Format all code automatically on save with Prettier to ensure consistent code style and avoid manual formatting conflicts.
+
+### Setup ESLint with Husky and lint-staged
+
+Install required packages:
+
+```bash
+npm install --save-dev eslint husky lint-staged
+```
